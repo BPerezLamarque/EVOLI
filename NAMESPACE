@@ -4,5 +4,5 @@ importFrom(mvMORPH, mvLL, pruning, mvSIM, GIC, mv.Precalc, ancestral)
 importFrom(phytools, plotSimmap, make.simmap, nodeHeights, findMRCA, getDescendants, drop.tip.simmap, midpoint.root, reorderSimmap, splitTree, pbtree, threshState)
 importFrom(vegan,vegdist)
 
-export(parafit_test,PACO_test)
+export(parafit_test,PACo_test)
 export(phylosignal_network,phylosignal_sub_network,plot_phylosignal_sub_network,mantel_test,mantel_test_nbpartners)

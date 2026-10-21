@@ -16,7 +16,7 @@ You can install RPANDA directly from gitHub with devtools:
 ```
 library(devtools)
 
-install_github("BPerezLamarque/EVOLI")
+install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 ```
 
