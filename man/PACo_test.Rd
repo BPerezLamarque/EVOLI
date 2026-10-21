@@ -14,7 +14,7 @@ The method is described in detail in Balbuena et al. (2013) and originally coded
 \usage{
 PACo_test(dist_A, dist_B, network,
 nperm = 1000, seed = NA, symmetric = TRUE,
-nullmodel = 2, table_biogeo = NULL)
+nullmodel = "shuffle", table_biogeo = NULL)
 }
 
 \arguments{

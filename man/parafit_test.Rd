@@ -14,7 +14,7 @@ The method is described in detail in Legendre et al. (2002) and originally coded
 \usage{
 parafit_test(dist_A, dist_B, network, nperm = 1000,
 seed = NULL, correction = "none",
-nullmodel=2, table_biogeo=NULL)
+nullmodel = "shuffle", table_biogeo = NULL)
 }
 
 
