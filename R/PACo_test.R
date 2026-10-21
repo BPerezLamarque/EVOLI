@@ -1,5 +1,5 @@
 PACo_test <-
-function (dist_A, dist_B, network, nperm = 1000, seed = NA, symmetric = TRUE, nullmodel = 2, table_biogeo = NULL) {
+function (dist_A, dist_B, network, nperm = 1000, seed = NA, symmetric = TRUE, nullmodel = "shuffle", table_biogeo = NULL) {
   
   D <- prepare_paco_data_test(dist_A, dist_B, network)
   

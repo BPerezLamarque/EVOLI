@@ -1,7 +1,7 @@
 parafit_test <-
 function (dist_A, dist_B, network, nperm = 1000,
                           seed = NULL, correction = "none",
-                          nullmodel=2, table_biogeo=NULL) {
+                          nullmodel="shuffle", table_biogeo=NULL) {
   epsilon <- sqrt(.Machine$double.eps)
   
   if (is.null(seed)) {

@@ -8,7 +8,7 @@ Compute cophylogenetic signal in a bipartite interaction network using PACo.
 \description{
 This function computes the cophylogenetic signal in species interactions using PACo.
 
-The method is described in detail in Legendre et al. (2002) and originally in the package APE (Paradis, 2004).
+The method is described in detail in Balbuena et al. (2013) and originally coded in the package paco (Hutchinson et al, 2017).
 }
 
 \usage{
