@@ -3,7 +3,7 @@
 
 <br>
 
-The R-package EVOLI (EVOLution of species Interactions) contains various functions for measuring (co)phylogenetic signal in species interactions. 
+The R-package EVOLI (EVOLution of species Interactions) contains various functions for measuring (co)phylogenetic signal in species interactions and testing the effect of different evolutionary processes structuring species interactions. 
 
 <br>
 
