@@ -8,6 +8,7 @@ Authors@R: c(person("Benoît", "Perez-Lamarque", role = c("aut", "cre", "cph"), 
 Description: Phylogenetic analyses of species interactions.
 Depends:
 	R (>= 4.1.0),
+	stats,
     ape,
     phytools,
     mvMORPH,

@@ -20,10 +20,10 @@ nullmodel = "shuffle", table_biogeo = NULL)
 \arguments{
 
 \item{dist_A}{
-a distance matrix representing the phylogenetic distances between pairs of species from guild A (in columns in the interaction network).
+a distance matrix representing the phylogenetic distances between pairs of species from guild A (in columns in the interaction network), or directly the phylogenetic tree of guild A.
 }
 \item{dist_B}{
-a distance matrix representing the phylogenetic distances between pairs of species from guild B (in rows in the interaction network).
+a distance matrix representing the phylogenetic distances between pairs of species from guild B (in rows in the interaction network), or directly the phylogenetic tree of guild B.
 }
 \item{network}{
 a matrix representing the bipartite interaction network with species from guild A in columns and species from guild B in rows. Row names (resp. columns names) must correspond to the tip labels of tree B (resp. tree A).

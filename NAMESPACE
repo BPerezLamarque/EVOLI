@@ -3,6 +3,7 @@ importFrom(GUniFrac,GUniFrac)
 importFrom(mvMORPH, mvLL, pruning, mvSIM, GIC, mv.Precalc, ancestral)
 importFrom(phytools, plotSimmap, make.simmap, nodeHeights, findMRCA, getDescendants, drop.tip.simmap, midpoint.root, reorderSimmap, splitTree, pbtree, threshState)
 importFrom(vegan,vegdist)
+importFrom(stats,cophenetic)
 import(ggplot2)
 import(scales)
 
