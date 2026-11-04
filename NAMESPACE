@@ -5,4 +5,6 @@ importFrom(phytools, plotSimmap, make.simmap, nodeHeights, findMRCA, getDescenda
 importFrom(vegan,vegdist)
 
 export(parafit_test,PACo_test)
-export(phylosignal_network,phylosignal_sub_network,plot_phylosignal_sub_network,mantel_test,mantel_test_nbpartners)
+export(mantel_test,mantel_test_nbpartners)
+export(phylosignal_network,phylosignal_sub_network,plot_phylosignal_sub_network)
+export(plot_null_model,plot_null_models,compare_null_models)
