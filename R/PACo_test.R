@@ -3,6 +3,14 @@ function (dist_A, dist_B, network, nperm = 1000,
                        seed = NA, symmetric = TRUE, 
                        nullmodel = "shuffle", table_biogeo = NULL) {
   
+  
+  if (class(dist_A)=="phylo"){
+    dist_A <- stats::cophenetic(dist_A)
+  }
+  if (class(dist_B)=="phylo"){
+    dist_B <- stats::cophenetic(dist_B)
+  }
+  
   D <- prepare_paco_data_test(dist_A, dist_B, network)
   
   if (!nullmodel %in% c(1,2,3,"r0","shuffle","biogeo")) {
