@@ -42,13 +42,15 @@ install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 Benoît Perez-Lamarque (benoit.perez-lamarque@utoulouse.fr)
 
-
+<br>
 
 ### **Citation**
 
 Ibos Y, Sagnard A, Perez-Lamarque B (2026), Assessing the influence of biogeography on (co)phylogenetic signals in species interactions, in prep.
 
 Perez-Lamarque B, Morlon H (2024), Distinguishing cophylogenetic signal from phylogenetic congruence clarifies the interplay between evolutionary history and species interactions, Systematic Biology, 73: 3.
+
+<br>
 
 ### **Report an issue**
 Any bugs encountered when using the package can be reported [here](https://github.com/BPerezLamarque/EVOLI/issues)
