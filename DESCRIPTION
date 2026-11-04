@@ -13,6 +13,7 @@ Depends:
     mvMORPH,
     GUniFrac,
     ggplot2,
+    scales,
     vegan
 Maintainer: Benoît Perez-Lamarque <benoit.perez-lamarque@utoulouse.fr>
 Encoding: UTF-8
