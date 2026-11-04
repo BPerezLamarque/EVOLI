@@ -47,10 +47,10 @@ function(results, results_biogeo, method, median=FALSE){
     fraction_explained <- (median_null_biogeo - median_null) / (obs - median_null)
   }
   
-  res <- rbind(c("Random permutations", round(mu_null,4),  round(sd_null,4),  round(SES_null,4), ""),
-               c("Biogeographic permutations",  round(mu_null_biogeo,4),  round(sd_null_biogeo,4),  round(SES_null_biogeo,4),  round(fraction_explained,4)))
+  res <- rbind(c("Random permutations (H0)", round(mu_null,4),  round(sd_null,4),  round(SES_null,4), ""),
+               c("Biogeographic-based permutations (H0 biogeo)",  round(mu_null_biogeo,4),  round(sd_null_biogeo,4),  round(SES_null_biogeo,4),  round(fraction_explained,4)))
   
-  colnames(res) <- c("Random permutations", "mean", "sd", "SES", "Explained fraction")
+  colnames(res) <- c("Random permutations", "mean", "sd", "SES", "f fraction")
   
   return(res)
   

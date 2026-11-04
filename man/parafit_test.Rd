@@ -43,7 +43,7 @@ Indicates which type of null model to use, including "suffle" (by default - i.e.
 }
 
 \item{table_biogeo}{
-(optional) a dataframe that contains two columns: a column "species" that contain the name of each species of guild A and a column "biogeo" that indicate the corresponding biogeographic area for each species (only one area per species). This table is used for the nullmodel "biogeo".
+(optional) a dataframe that contains two columns: a column "species" that contains the name of each species of guild A and a column "biogeo" that indicate the corresponding biogeographic area for each species (only one area per species). This table is used for the nullmodel "biogeo".
 }
 
 

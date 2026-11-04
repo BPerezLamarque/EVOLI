@@ -44,7 +44,7 @@ Indicates whether to run a symmetric Procrustean superposition (Blasco-Costa et 
 Indicates which type of null model to use, including "suffle" (by default - i.e. random shufflying of the species labels of "tree_A") or "biogeo" (i.e. only shuffling species of tree A that are present on the same biogeographic areas - to do so, provide an object "table_biogeo").
 }
 \item{table_biogeo}{
-(optional) a dataframe that contains two columns: a column "species" that contain the name of each species of guild A and a column "biogeo" that indicate the corresponding biogeographic area for each species (only one area per species). This table is used for the nullmodel "biogeo".
+(optional) a dataframe that contains two columns: a column "species" that contains the name of each species of guild A and a column "biogeo" that indicates the corresponding biogeographic area for each species (only one area per species). This table is used for the nullmodel "biogeo".
 }
 }
 
