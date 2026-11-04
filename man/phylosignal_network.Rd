@@ -86,6 +86,8 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 }
 \examples{
 
+
+
 # Load the data
 data(mycorrhizal_network)
 
@@ -95,7 +97,7 @@ tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
 
 \donttest{
 
-# Using Mantel tests:
+# Example 1: Compute phylogenetic signal in species interactions using Mantel tests:
 
 # Step 1: Phylogenetic signal in species interactions
 # (do closely related species interact with similar partners?)
@@ -120,7 +122,35 @@ correlation = "Pearson", nperm = 10000) # for guild A
 phylosignal_network(t(network), tree_A = tree_fungi, method = "degree",
 correlation = "Pearson", nperm = 10000) # for guild B
 
-
 }
+
+
+
+# Example 2: Assess the effect of biogeography on phylogenetic signal in species interactions using Mantel tests:
+
+data("cophylogenetic_system") # Load the data
+
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
+
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
+
+# Run Mantel test under "H0" (random shuffling of the species labels)
+mantel_result <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, permutation ="shuffle")
+
+# Run Mantel test under "H0 biogeo" (biogeography-based shuffling of the species labels)
+mantel_result_biogeo <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, permutation ="biogeo", table_biogeo = table_biogeo_host)
+
+# Compare the results obtained under the two null models 
+mantel_result[c("mantel_cor_A","p_upper_A")] # Test statistic and p-value under "H0"
+mantel_result_biogeo[c("mantel_cor_A","p_upper_A")] # Test statistic and p-value under "H0 biogeo"
+compare_null_models(mantel_result, mantel_result_biogeo, method = "mantel") # Standardized effect sizes and f fraction
+
+# Plot the distributions under the two null models
+plot_null_models_comparison(mantel_result, mantel_result_biogeo, "mantel")
+
+
 }
 

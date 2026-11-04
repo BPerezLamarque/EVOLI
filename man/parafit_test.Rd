@@ -77,41 +77,52 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 }
 \examples{
 
-# Load the data
-data(mycorrhizal_network)
+# Example 1: Compute cophylogenetic signal using ParaFit
 
-network <- mycorrhizal_network[[1]] # interaction matrix
-tree_orchids <- mycorrhizal_network[[2]] # phylogenetic tree (phylo object)
-tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
+data("cophylogenetic_system") # Load the data
 
-\donttest{
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
 
-# Using Mantel tests:
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
 
-# Step 1: Phylogenetic signal in species interactions
-# (do closely related species interact with similar partners?)
+# Run ParaFit under "H0" (random shuffling of the species labels)
+parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
-phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
-method = "GUniFrac", correlation = "Pearson", nperm = 10000) # measured for both guilds
+# Print the test statistic and p-value under "H0"
+parafit_result[c("ParaFitGlobal","p")]
 
-
-# Step 2: Phylogenetic signal in species interactions when accouting
-# for the signal in the number of partners
-# Mantel test with permutations that keep constant the number of partners per species
-
-phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
-method = "GUniFrac", correlation = "Pearson", nperm = 1000, permutation = "nbpartners")
+# Plot the null distribution under "H0"
+plot_null_model(parafit_result, "parafit")
 
 
-# Other: Phylogenetic signal in the number of partners
-# (do closely related species interact with the same number of partners?)
 
-phylosignal_network(network, tree_A = tree_orchids, method = "degree",
-correlation = "Pearson", nperm = 10000) # for guild A
-phylosignal_network(t(network), tree_A = tree_fungi, method = "degree",
-correlation = "Pearson", nperm = 10000) # for guild B
+# Example 2: Assess the effect of biogeography on cophylogenetic signal using PACo
+
+data("cophylogenetic_system") # Load the data
+
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
+
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
+
+# Run ParaFit under "H0" (random shuffling of the species labels)
+parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
+
+# Run ParaFit under "H0 biogeo" (biogeography-based shuffling of the species labels)
+parafit_result_biogeo <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
+
+# Compare the results obtained under the two null models 
+parafit_result[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0"
+parafit_result_biogeo[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0 biogeo"
+compare_null_models(parafit_result, parafit_result_biogeo, method = "parafit") # Standardized effect sizes and f fraction
+
+# Plot the distributions under the two null models
+plot_null_models_comparison(parafit_result, parafit_result_biogeo, "parafit")
 
 
-}
 }
 
