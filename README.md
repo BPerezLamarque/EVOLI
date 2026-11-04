@@ -4,9 +4,16 @@
 The R-package EVOLI (EVOLution of species Interactions) contains various functions for measuring (co)phylogenetic signal in species interactions. 
 
 More information on the EVOLI package and worked examples can be found in the following tutorials: 
-- <a href="https://github.com/BPerezLamarque/Phylosignal_network">Measuring phylogenetic signal in species interactions using Mantel tests</a> (citation: Perez-Lamarque et al., 2022, PCI Journal) 
-- Measuring cophylogenetic signal in species interactions using ParaFit or PACo (citation: Perez-Lamarque & Morlon, 2024; Systematic Biology) 
-- Assessing the influence of biogeography on (co)phylogenetic signals in species interactions (citation: Ibos et al., 2026, in prep.) 
+- <a href="https://github.com/BPerezLamarque/Phylosignal_network">Measuring phylogenetic signal in species interactions using Mantel tests</a> (citation: <a href="https://peercommunityjournal.org/articles/10.24072/pcjournal.179/">Perez-Lamarque et al., 2022, Peer Community Journal</a>) 
+- <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Cophylogenetic_signal">Measuring cophylogenetic signal in species interactions using ParaFit or PACo</a> (citation: <a href="https://doi.org/10.1093/sysbio/syae013">Perez-Lamarque & Morlon, 2024; Systematic Biology</a>) 
+- <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions">Assessing the influence of biogeography on (co)phylogenetic signals in species interactions</a> (citation: Ibos et al., 2026, in prep.) 
+
+
+
+
+<a href="https://">XXXX</a>
+<a href="https://">XXXX</a>
+
 
 
 
