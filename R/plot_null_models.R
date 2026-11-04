@@ -1,5 +1,6 @@
 plot_null_models <-
-function(res, res_biogeo, method, median=FALSE){
+function(res, res_biogeo, method, 
+                             median=FALSE){
   
   if (method=="paco"){
     x_obs <- res$R2_obs
@@ -44,28 +45,4 @@ function(res, res_biogeo, method, median=FALSE){
     coord_cartesian(xlim = xlim) + labs(x = name, y = "Density") + theme_bw()
   print(p)
   
-  # x_all <- c(x_obs, x_H0, x_H0_biogeo)
-  # 
-  # hist(x_H0,
-  #      col =  adjustcolor("blue", alpha.f = 0.5),
-  #      breaks = 20,
-  #      freq = FALSE,
-  #      xlim = range(x_all) + c(-0.02, 0.02) * diff(range(x_all)),
-  #      main = "",
-  #      xlab = name)
-  # 
-  # hist(x_H0_biogeo,
-  #      col =  adjustcolor("darkgreen", alpha.f = 0.5),
-  #      breaks = 20,
-  #      freq = FALSE,
-  #      add = TRUE)
-  # 
-  # abline(v = x_obs, col = adjustcolor("red", alpha.f = 0.5), lwd = 3, lty = 3)
-  # 
-  # legend("topright",
-  #        legend = c("H0", "H0 biogeo", obs),
-  #        col = c(adjustcolor("blue", alpha.f = 0.5), adjustcolor("darkgreen", alpha.f = 0.5), adjustcolor("red", alpha.f = 0.5)),
-  #        lwd = c(2, 2, 3),
-  #        lty = c(1, 1, 3),
-  #        bty = "n")
 }

@@ -1,7 +1,7 @@
 mantel_test <-
-function(network, tree_A, tree_B = NULL, method="Jaccard_binary", 
-                        nperm=1000, correlation="Pearson", permutation="shuffle",
-                        verbose=TRUE, table_biogeo=NULL){
+function(network, tree_A, tree_B = NULL, method = "Jaccard_binary", 
+                        nperm = 1000, correlation = "Pearson", permutation = "shuffle",
+                        verbose = TRUE, table_biogeo = NULL){
   
   if (!correlation %in% c("Pearson", "Spearman")) {stop("\"correlation\" must be among 'Pearson' or 'Spearman'.")}
   if (!is.numeric(nperm)) {stop("Please provide a numeric number of permutations (\"nperm\").")}

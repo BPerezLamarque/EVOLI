@@ -1,5 +1,5 @@
 compare_null_models <-
-function(results, results_biogeo, method){
+function(results, results_biogeo, method, median=FALSE){
   
   if (method=="paco"){
     mu_null <- mean(results$R2_perm)
@@ -7,6 +7,10 @@ function(results, results_biogeo, method){
     sd_null <- sd(results$R2_perm)
     sd_null_biogeo <- sd(results_biogeo$R2_perm)
     obs <- results$R2_obs
+    if (median){
+      median_null <- median(results$R2_perm)
+      median_null_biogeo <- median(results_biogeo$R2_perm)
+    }
   }
   
   if (method=="parafit"){
@@ -15,6 +19,10 @@ function(results, results_biogeo, method){
     sd_null <- sd(results$ParaFitGlobal_perm)
     sd_null_biogeo <- sd(results_biogeo$ParaFitGlobal_perm)
     obs <- results$ParaFitGlobal
+    if (median){
+      median_null <- median(results$ParaFitGlobal_perm)
+      median_null_biogeo <- median(results_biogeo$ParaFitGlobal_perm)
+    }
   }
   
   if (method=="mantel"){
@@ -23,6 +31,10 @@ function(results, results_biogeo, method){
     sd_null <- sd(results$mantel_cor_A_perm)
     sd_null_biogeo <- sd(results_biogeo$mantel_cor_A_perm)
     obs <- results$mantel_cor_A
+    if (median){
+      median_null <- median(results$mantel_cor_A_perm)
+      median_null_biogeo <- median(results_biogeo$mantel_cor_A_perm)
+    }
   }
   
   # Statistics with Standardized Effect Size (SES) which indicates how strong the departure from each null expectation is.
@@ -31,7 +43,9 @@ function(results, results_biogeo, method){
   
   # fraction of the original deviation explained by geographic structure.
   fraction_explained <- (mu_null_biogeo - mu_null) / (obs - mu_null)
-  
+  if (median){
+    fraction_explained <- (median_null_biogeo - median_null) / (obs - median_null)
+  }
   
   res <- rbind(c("Random permutations", round(mu_null,4),  round(sd_null,4),  round(SES_null,4), ""),
                c("Biogeographic permutations",  round(mu_null_biogeo,4),  round(sd_null_biogeo,4),  round(SES_null_biogeo,4),  round(fraction_explained,4)))

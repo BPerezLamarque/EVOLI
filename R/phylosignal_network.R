@@ -1,6 +1,6 @@
 phylosignal_network <-
 function(network, tree_A, tree_B=NULL, method = "Jaccard_weighted", nperm = 10000, correlation = "Pearson", only_A = FALSE, 
-                                permutation = "shuffle", table_biogeo=NULL){
+                                permutation = "shuffle", table_biogeo = NULL){
   
   
   if (is.null(tree_B)) {only_A <- TRUE} 
