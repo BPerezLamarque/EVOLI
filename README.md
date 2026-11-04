@@ -14,13 +14,6 @@ More information on the EVOLI package and worked examples can be found in the fo
 
 
 
-<a href="https://">XXXX</a>
-<a href="https://">XXXX</a>
-
-
-
-
-
 The current stable version of the EVOLI package (1.0) is available on the CRAN repository.
 
 
@@ -35,6 +28,15 @@ library(devtools)
 install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 ```
+
+### **Contact**
+
+Benoît Perez-Lamarque (benoit.perez-lamarque@utoulouse.fr)
+
+
+### **Citation**
+
+Ibos Y., Sagnard A., Perez-Lamarque B., Assessing the influence of biogeography on (co)phylogenetic signals in species interactions, 2026, in prep.
 
 
 
