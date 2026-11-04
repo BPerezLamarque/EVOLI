@@ -1,11 +1,11 @@
 # EVOLI
 ## EVOLution of species Interactions
 
-<br> <br>
+<br>
 
 The R-package EVOLI (EVOLution of species Interactions) contains various functions for measuring (co)phylogenetic signal in species interactions. 
 
-<br> <br>
+<br>
 
 
 More information on the EVOLI package and worked examples can be found in the following tutorials: 
@@ -17,12 +17,12 @@ More information on the EVOLI package and worked examples can be found in the fo
 - Tutorial 3: <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions">Assessing the influence of biogeography on (co)phylogenetic signals in species interactions</a> (citation: Ibos et al., 2026, in prep.) 
 
 
-<br> <br>
+<br>
 
 
 The current stable version of the EVOLI package (1.0) is available on the CRAN repository.
 
-<br> <br>
+<br>
 
 
 ### **Package Installation**
@@ -37,7 +37,6 @@ install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 ```
 
-<br> <br>
 
 ### **Contact**
 
