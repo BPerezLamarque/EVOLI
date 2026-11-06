@@ -79,6 +79,7 @@ phylosignal_sub_network <- function(network, tree_A, tree_B=NULL, method = "Jacc
     colnames(results_sub_clades) <- c("node", "nb_A", "nb_B", "mantel_cor", "pvalue_upper", "pvalue_lower", "pvalue_upper_corrected","pvalue_lower_corrected") 
   }
   results_sub_clades <- data.frame(results_sub_clades, stringsAsFactors = FALSE)
+  results_sub_clades$node <- as.integer(as.numeric(results_sub_clades$node))
   results_sub_clades$nb_A <- as.integer(as.numeric(results_sub_clades$nb_A))
   results_sub_clades$nb_B <- as.integer(as.numeric(results_sub_clades$nb_B))
   results_sub_clades$mantel_cor <- as.numeric(results_sub_clades$mantel_cor)
