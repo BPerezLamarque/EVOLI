@@ -70,15 +70,10 @@ https://github.com/BPerezLamarque/Phylosignal_network
 
 \references{
 Perez-Lamarque B, Maliet O, Pichon B, Selosse M-A, Martos F, Morlon H. 2022. Do closely related species interact with similar partners? Testing for phylogenetic signal in bipartite interaction networks. Peer Community Journal, Volume 2, article no. e59. doi: 10.24072/pcjournal.179. https://peercommunityjournal.org/articles/10.24072/pcjournal.179/
-
-Goslee, S.C. & Urban, D.L. (2007). The ecodist package for dissimilarity-based analysis of ecological data. J. Stat. Softw., 22, 1–19.
-
-Chen, J., Bittinger, K., Charlson, E.S., Hoffmann, C., Lewis, J., Wu, G.D., et al. (2012). Associating microbiome composition with environmental covariates using generalized UniFrac distances. Bioinformatics, 28, 2106–2113.
-
 }
 \author{Benoît Perez-Lamarque}
 \seealso{
-\code{\link{phylosignal_sub_network}}
+\code{\link{phylosignal_network}}
 \code{\link{plot_phylosignal_sub_network}}
 }
 \examples{
@@ -86,9 +81,9 @@ Chen, J., Bittinger, K., Charlson, E.S., Hoffmann, C., Lewis, J., Wu, G.D., et a
 # Load the data
 data(mycorrhizal_network)
 
-network <- mycorrhizal_network[[1]] # interaction matrix 
-tree_orchids <- mycorrhizal_network[[2]] # phylogenetic tree (phylo object)
-tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
+network <- mycorrhizal_network[[1]] # Interaction matrix
+tree_orchids <- mycorrhizal_network[[2]] # Phylogenetic tree of guild A (orchids)
+tree_fungi <- mycorrhizal_network[[3]] # Phylogenetic tree of guild B (fungi)
 
 \donttest{
 
@@ -96,16 +91,17 @@ tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
 # (do closely related species interact with similar partners within sub-clades of guild A?)
 
 results_clade_A <- phylosignal_sub_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
-method = "GUniFrac", correlation = "Pearson", degree = TRUE)
-plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network)
+                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network, where = "topleft")
 
 
 # Clade-specific phylogenetic signal in species interactions in guild B
 # (do closely related species interact with similar partners within sub-clades of guild B?)
 
 results_clade_B <- phylosignal_sub_network(t(network), tree_A = tree_fungi, tree_B = tree_orchids, 
-method = "GUniFrac", correlation = "Pearson", degree = TRUE)
-plot_phylosignal_sub_network(tree_A = tree_fungi, results_clade_B, t(network))
+                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+plot_phylosignal_sub_network(tree_A = tree_fungi, results_clade_B, t(network), where = "topleft")
+
 }
 
 }
