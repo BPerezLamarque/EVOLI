@@ -28,12 +28,14 @@ The current stable version of the EVOLI package (1.0) is available on the CRAN r
 ### **Package Installation**
 
 **From gitHub**
-You can install EVOLI directly from gitHub with devtools:
+You can install EVOLI directly from gitHub:
 
 ```
-library(devtools)
 
-install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
+library(pak)
+
+pak::pak("BPerezLamarque/EVOLI", dependencies = TRUE)
+
 
 ```
 

@@ -88,6 +88,10 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 
 
 
+\donttest{
+
+# Example 1: Compute phylogenetic signal in species interactions using Mantel tests:
+
 # Load the data
 data(mycorrhizal_network)
 
@@ -95,9 +99,6 @@ network <- mycorrhizal_network[[1]] # interaction matrix
 tree_orchids <- mycorrhizal_network[[2]] # phylogenetic tree (phylo object)
 tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
 
-\donttest{
-
-# Example 1: Compute phylogenetic signal in species interactions using Mantel tests:
 
 # Step 1: Phylogenetic signal in species interactions
 # (do closely related species interact with similar partners?)
