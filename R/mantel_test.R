@@ -75,14 +75,14 @@ function(network, tree_A, tree_B = NULL, method = "Jaccard_binary",
     
     # Unifrac (generalized UniFrac, with alpha=0.5)
     if (method=="GUniFrac"){
-      unifrac_A <- GUniFrac::GUniFrac(t(network), tree = tree_B, alpha=c(0.5))
+      unifrac_A <- GUniFrac::GUniFrac(t(network), tree = tree_B, alpha=c(0.5), verbose = FALSE)
       index=1
       eco_A <- unifrac_A$unifracs[,,index]
     }
     
     # Unifrac (unweighted UniFrac)
     if (method=="UniFrac_unweighted"){
-      unifrac_A <- GUniFrac::GUniFrac(t(network), tree = tree_B, alpha=c(0.5))
+      unifrac_A <- GUniFrac::GUniFrac(t(network), tree = tree_B, alpha=c(0.5), verbose = FALSE)
       index=2
       eco_A <- unifrac_A$unifracs[,,index]
     }
