@@ -58,12 +58,12 @@ phylosignal_sub_network <- function(network, tree_A, tree_B=NULL, method = "Jacc
       
       if (nrow(sub_network)>1){
         nb_sub_clades <- nb_sub_clades+1
-        mantel_test <- RPANDA::phylosignal_network(sub_network, sub_host_tree, sub_symbiont_tree, method = method, nperm = nperm, correlation = correlation, permutation = permutation)
+        mantel_test <- phylosignal_network(sub_network, sub_host_tree, sub_symbiont_tree, method = method, nperm = nperm, correlation = correlation, permutation = permutation)
         
         if (degree==TRUE){
           mantel_degree <- rep("NA", 5)
           tryCatch({
-            mantel_degree <- RPANDA::phylosignal_network(sub_network, sub_host_tree, sub_symbiont_tree, method = "degree", nperm = nperm, correlation = correlation)
+            mantel_degree <- phylosignal_network(sub_network, sub_host_tree, sub_symbiont_tree, method = "degree", nperm = nperm, correlation = correlation)
           }, error=function(e){if (verbose) {cat("clade ",i,": ", conditionMessage(e), "\n")}})
           results_sub_clades <- rbind(results_sub_clades, c(i, mantel_test[1:5],NA,NA, mantel_degree[3:5] ))
         }else{

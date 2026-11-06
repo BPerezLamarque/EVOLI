@@ -101,8 +101,7 @@ network <- mycorrhizal_network[[1]] # interaction matrix
 tree_orchids <- mycorrhizal_network[[2]] # phylogenetic tree (phylo object)
 tree_fungi <- mycorrhizal_network[[3]] # phylogenetic tree (phylo object)
 
-\dontshow{test <- FALSE}
-if(test){
+\donttest{
 
 # Clade-specific phylogenetic signal in species interactions in guild A 
 # (do closely related species interact with similar partners in sub-clades of guild A?)
