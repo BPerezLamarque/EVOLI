@@ -10,11 +10,11 @@ The R-package EVOLI (EVOLution of species Interactions) contains various functio
 
 More information on the EVOLI package and worked examples can be found in the following tutorials: 
 
-- Tutorial 1: <a href="https://github.com/BPerezLamarque/Phylosignal_network">Measuring phylogenetic signal in species interactions using Mantel tests</a> (citation: <a href="https://peercommunityjournal.org/articles/10.24072/pcjournal.179/">Perez-Lamarque et al., 2022, Peer Community Journal</a>) 
+- **Tutorial 1: <a href="https://github.com/BPerezLamarque/Phylosignal_network">Measuring phylogenetic signal in species interactions using Mantel tests</a>** (citation: <a href="https://peercommunityjournal.org/articles/10.24072/pcjournal.179/">Perez-Lamarque et al., 2022, Peer Community Journal</a>) 
 
-- Tutorial 2: <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Cophylogenetic_signal">Measuring cophylogenetic signal in species interactions using ParaFit or PACo</a> (citation: <a href="https://doi.org/10.1093/sysbio/syae013">Perez-Lamarque & Morlon, 2024; Systematic Biology</a>) 
+- **Tutorial 2: <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Cophylogenetic_signal">Measuring cophylogenetic signal in species interactions using ParaFit or PACo</a>** (citation: <a href="https://doi.org/10.1093/sysbio/syae013">Perez-Lamarque & Morlon, 2024; Systematic Biology</a>) 
 
-- Tutorial 3: <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions">Assessing the influence of biogeography on (co)phylogenetic signals in species interactions</a> (citation: Ibos et al., 2026, in prep.) 
+- **Tutorial 3: <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions">Assessing the influence of biogeography on (co)phylogenetic signals in species interactions</a>** (citation: Ibos et al., 2026, in prep.) 
 
 
 <br>
