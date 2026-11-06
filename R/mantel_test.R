@@ -1,7 +1,7 @@
 mantel_test <-
 function(network, tree_A, tree_B = NULL, method = "Jaccard_binary", 
-                        nperm = 1000, correlation = "Pearson", permutation = "shuffle",
-                        verbose = TRUE, table_biogeo = NULL){
+                        correlation = "Pearson", nperm = 1000, permutation = "shuffle",
+                        table_biogeo = NULL, verbose = TRUE){
   
   if (!correlation %in% c("Pearson", "Spearman")) {stop("\"correlation\" must be among 'Pearson' or 'Spearman'.")}
   if (!is.numeric(nperm)) {stop("Please provide a numeric number of permutations (\"nperm\").")}
@@ -16,7 +16,7 @@ function(network, tree_A, tree_B = NULL, method = "Jaccard_binary",
   if (nrow(network)<2){stop("Please provide a \"network\" with at least 2 species in clade B.")}
   if (ncol(network)<2){stop("Please provide a \"network\" with at least 2 species in clade A.")}
   
-  if (!permutation %in% c("shuffle","nbpartners", "biogeo")) {stop("Please provide a type of \"permutation\" among 'shuffle' and 'nbpartners'.")}
+  if (!permutation %in% c("shuffle","nbpartners", "biogeo")) {stop("Please provide a type of \"permutation\" among 'shuffle', 'nbpartners', or 'biogeo'.")}
   
   if (permutation == "biogeo") { 
     if (!all(colnames(network) %in% table_biogeo$species)){
