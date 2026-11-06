@@ -2,6 +2,9 @@ plot_null_model <-
 function(res, method, 
                              median=FALSE){
   
+  if (!method %in% c("paco", "parafit", "mantel")) {stop("\"method\" must be among 'paco', 'parafit' or 'mantel'.")}
+  
+  
   if (method=="paco"){
     x_obs <- res$R2_obs
     x_H0 <- res$R2_perm

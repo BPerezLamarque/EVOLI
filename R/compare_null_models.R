@@ -1,6 +1,8 @@
 compare_null_models <-
 function(results, results_biogeo, method, median=FALSE){
   
+  if (!method %in% c("paco", "parafit", "mantel")) {stop("\"method\" must be among 'paco', 'parafit' or 'mantel'.")}
+  
   if (method=="paco"){
     mu_null <- mean(results$R2_perm)
     mu_null_biogeo <- mean(results_biogeo$R2_perm)

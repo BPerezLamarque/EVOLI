@@ -76,6 +76,9 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 \author{Benoît Perez-Lamarque}
 \seealso{
 \code{\link{PACo_test}}
+\code{\link{plot_null_model}}
+\code{\link{plot_null_models_comparison}}
+\code{\link{compare_null_models}}
 }
 \examples{
 
