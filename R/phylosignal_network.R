@@ -64,7 +64,7 @@ function(network, tree_A, tree_B=NULL, method = "Jaccard_weighted", nperm = 1000
   
   if (permutation=="shuffle"){
     mantel_A <- mantel_test(network=network, tree_A=tree_A, tree_B=tree_B, method=method, nperm=nperm, correlation=correlation, permutation=permutation)
-    if (only_A==FALSE) {mantel_B <- mantel_test(network=t(network), tree_A=tree_B, tree_B=tree_A, method, nperm, correlation, permutation=permutation)
+    if (only_A==FALSE) {mantel_B <- mantel_test(network=t(network), tree_A=tree_B, tree_B=tree_A, method=method, nperm=nperm, correlation=correlation, permutation=permutation)
     }else{mantel_B <- list(R=NA, p_value_upper=NA, p_value_lower=NA)}
   }
   
@@ -75,7 +75,7 @@ function(network, tree_A, tree_B=NULL, method = "Jaccard_weighted", nperm = 1000
   }
   
   if (permutation=="biogeo"){
-    mantel_A <- mantel_test(network=network, tree_A=tree_A, tree_B=tree_B, method=method, nperm = nperm, correlation= correlation, permutation=permutation, table_biogeo=table_biogeo)
+    mantel_A <- mantel_test(network=network, tree_A=tree_A, tree_B=tree_B, method=method, nperm=nperm, correlation=correlation, permutation=permutation, table_biogeo=table_biogeo)
     mantel_B <- list(R=NA, p_value_upper=NA, p_value_lower=NA)
   }
   
