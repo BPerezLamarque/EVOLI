@@ -6,7 +6,7 @@ Plot the null distributions of a (co)phylogenetic signal test statistic under tw
 }
 
 \description{
-This function plots and compares the null distributions of the test statistic obtained under two null models used by PACo, ParaFit, or Mantel tests to assess (co)phylogenetic signal: "H0", which randomly shuffles species labels, and "H0 biogeo", which performs biogeography-constrained permutations.
+This function plots the null distributions of the test statistic obtained under two null models used by PACo, ParaFit, or Mantel tests to assess (co)phylogenetic signal: "H0", which randomly shuffles species labels, and "H0 biogeo", which performs biogeography-constrained permutations.
 }
 
 \usage{
