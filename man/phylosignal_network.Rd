@@ -87,16 +87,16 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 \author{Benoît Perez-Lamarque}
 \seealso{
 \code{\link{phylosignal_sub_network}}
+
 \code{\link{plot_null_model}}
+
 \code{\link{plot_null_models_comparison}}
+
 \code{\link{compare_null_models}}
 }
 \examples{
 
-
-
 \donttest{
-
 # Example 1: Compute phylogenetic signal in species interactions using Mantel tests
 
 # Load the data
@@ -135,8 +135,6 @@ mantel_result[c("mantel_cor_A", "p_upper_A")]
 mantel_result <-phylosignal_network(t(network), tree_A = tree_fungi, method = "degree",
 correlation = "Pearson", nperm = 10000)
 mantel_result[c("mantel_cor_A", "p_upper_A")] 
-
-
 }
 
 

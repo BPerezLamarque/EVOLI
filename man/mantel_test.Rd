@@ -84,8 +84,6 @@ Mantel, N. 1967. The detection of disease clustering and a generalized regressio
 # Example 1: Assess phylogenetic signal in species interactions using a Mantel test
 # (do closely related species interact with similar partners?)
 
-library(EVOLI)
-
 # Load the data
 data(mycorrhizal_network)
 

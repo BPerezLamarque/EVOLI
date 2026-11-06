@@ -37,9 +37,6 @@ indicates where the legend should be placed (default is "bottomleft").
 \item{corrected_pvalue}{
 indicates whether corrected p-values (default is TRUE, using the Bonferroni correction) or uncorrected p-values (FALSE) should be displayed.
 }
-\item{corrected_pvalue}{
-indicates whether the corrected p-values (default is TRUE; using Bonferonni correction) or the original p-values (FALSE) should be used.
-}
 }
 
 \value{

@@ -74,6 +74,7 @@ Perez-Lamarque B, Maliet O, Pichon B, Selosse M-A, Martos F, Morlon H. 2022. Do 
 \author{Benoît Perez-Lamarque}
 \seealso{
 \code{\link{phylosignal_network}}
+
 \code{\link{plot_phylosignal_sub_network}}
 }
 \examples{

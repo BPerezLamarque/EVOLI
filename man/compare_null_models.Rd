@@ -56,8 +56,11 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 
 \seealso{
 \code{\link{phylosignal_network}}
+
 \code{\link{parafit_test}}
+
 \code{\link{PACo_test}}
+
 \code{\link{plot_null_models_comparison}}
 }
 
@@ -75,7 +78,6 @@ table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column tabl
 nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
 
 \donttest{
-
 # Example 1: Assess the effect of biogeography on cophylogenetic signal using PACo
 
 # Run PACo under "H0" (random shuffling of species labels)

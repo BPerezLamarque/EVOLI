@@ -76,8 +76,11 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 \author{Benoît Perez-Lamarque}
 \seealso{
 \code{\link{PACo_test}}
+
 \code{\link{plot_null_model}}
+
 \code{\link{plot_null_models_comparison}}
+
 \code{\link{compare_null_models}}
 }
 \examples{
@@ -96,7 +99,7 @@ tree_B <- cophylogenetic_system$tree_B
 # Present-day interaction network between species of guild A (columns) and guild B (rows)
 network <- cophylogenetic_system$network
 
-# At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
+nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
 
 # Run ParaFit under H0 (random shuffling of species labels)
 parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
@@ -110,7 +113,6 @@ plot_null_model(parafit_result, "parafit")
 
 
 # Example 2: Assess the effect of biogeography on the cophylogenetic signal using ParaFit
-
 
 data("cophylogenetic_system") # Load the data
 

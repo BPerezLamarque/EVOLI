@@ -49,12 +49,14 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 
 \seealso{
 \code{\link{phylosignal_network}}
+
 \code{\link{parafit_test}}
+
 \code{\link{PACo_test}}
+
 \code{\link{compare_null_models}}
 }
 \examples{
-
 
 # Load the data
 
@@ -69,7 +71,6 @@ table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column tabl
 nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
 
 \donttest{
-
 # Example 1: Assess the effect of biogeography on cophylogenetic signal using PACo
 
 # Run PACo under "H0" (random shuffling of species labels)
@@ -80,7 +81,6 @@ PACo_result_biogeo <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmode
 
 # Plot the null distributions under the two null models
 plot_null_models_comparison(PACo_result, PACo_result_biogeo, "paco")
-
 }
 
 
