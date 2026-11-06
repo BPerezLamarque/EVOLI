@@ -8,8 +8,8 @@ function(res, method,
   if (method=="paco"){
     x_obs <- res$R2_obs
     x_H0 <- res$R2_perm
-    name <- "PACo R²"
-    obs <- "Obs. R²"
+    name <- ylab(expression("PACo R"^2))
+    obs <- ylab(expression("Obs. R"^2))
   }
   if (method=="parafit"){
     x_obs <- res$ParaFitGlobal

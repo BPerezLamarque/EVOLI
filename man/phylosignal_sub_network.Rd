@@ -22,6 +22,12 @@ permutation = "shuffle", verbose=TRUE)
 \item{network}{
 a matrix representing the bipartite interaction network, with species from guild A in columns and species from guild B in rows. Row names (resp. column names) must correspond to the tip labels of tree B (resp. tree A).
 }
+\item{tree_A}{
+a phylogenetic tree of guild A (corresponding to the columns of the interaction network). It must be an object of class "phylo".
+}
+\item{tree_B}{
+(optional) a phylogenetic tree of guild B (corresponding to the rows of the interaction network). It must be an object of class "phylo".
+}
 \item{method}{
 indicates which method is used to compute phylogenetic signal in species interactions. You can choose "Jaccard_weighted" (default), which computes ecological distances using weighted Jaccard dissimilarities, or "Jaccard_binary", which does not take interaction abundances into account. Alternatively, you can choose "Bray-Curtis" to compute Bray-Curtis dissimilarities, or "GUniFrac" and "UniFrac_unweighted" to compute weighted (or generalized) and unweighted UniFrac distances, respectively.
 }
@@ -92,7 +98,8 @@ tree_fungi <- mycorrhizal_network[[3]] # Phylogenetic tree of guild B (fungi)
 # (do closely related species interact with similar partners within sub-clades of guild A?)
 
 results_clade_A <- phylosignal_sub_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
-                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+                                           method = "GUniFrac", correlation = "Pearson", 
+                                           degree = TRUE)
 plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network, where = "topleft")
 
 
@@ -100,7 +107,8 @@ plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network, wh
 # (do closely related species interact with similar partners within sub-clades of guild B?)
 
 results_clade_B <- phylosignal_sub_network(t(network), tree_A = tree_fungi, tree_B = tree_orchids, 
-                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+                                           method = "GUniFrac", correlation = "Pearson", 
+                                           degree = TRUE)
 plot_phylosignal_sub_network(tree_A = tree_fungi, results_clade_B, t(network), where = "topleft")
 
 }

@@ -70,12 +70,15 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 
 data("cophylogenetic_system") # Load the data
 
-tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of guild A
-tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of guild B
-network <- cophylogenetic_system$network # Present-day interaction network between species from guild A (columns) and guild B (rows)
-table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic distribution of each species in clade A
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network 
+# Interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host 
+# A two-column table indicating the biogeographic distribution of each species from guild A
 
-nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
+nperm <- 1000 # At least 10,000 permutations are recommended 
+# (1,000 are used here to keep the example computationally fast)
 
 \donttest{
 # Example 1: Assess the effect of biogeography on cophylogenetic signal using PACo
@@ -84,7 +87,8 @@ nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used her
 PACo_result <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
 # Run PACo under "H0 biogeo" (biogeography-constrained shuffling of species labels)
-PACo_result_biogeo <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
+PACo_result_biogeo <- PACo_test(tree_A, tree_B, network, nperm = nperm, 
+    nullmodel = "biogeo", table_biogeo = table_biogeo_host)
 
 # Compare the null distributions under the two null models
 compare_null_models(PACo_result, PACo_result_biogeo, method = "paco")
@@ -93,10 +97,12 @@ compare_null_models(PACo_result, PACo_result_biogeo, method = "paco")
 # Example 2: Assess the effect of biogeography on phylogenetic signal using Mantel tests
 
 # Run a Mantel test under "H0" (random shuffling of species labels)
-mantel_result <- phylosignal_network(network, tree_A, method = "Jaccard_binary", nperm = nperm, permutation = "shuffle")
+mantel_result <- phylosignal_network(network, tree_A, method = "Jaccard_binary", 
+    nperm = nperm, permutation = "shuffle")
 
 # Run a Mantel test under "H0 biogeo" (biogeography-constrained shuffling of species labels)
-mantel_result_biogeo <- phylosignal_network(network, tree_A, method = "Jaccard_binary", nperm = nperm, permutation = "biogeo", table_biogeo = table_biogeo_host)
+mantel_result_biogeo <- phylosignal_network(network, tree_A, method = "Jaccard_binary", 
+    nperm = nperm, permutation = "biogeo", table_biogeo = table_biogeo_host)
 
 # Compare the null distributions under the two null models
 compare_null_models(mantel_result, mantel_result_biogeo, method = "mantel")

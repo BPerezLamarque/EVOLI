@@ -32,6 +32,9 @@ a matrix representing the bipartite interaction network with species from guild 
 \item{nperm}{
 the number of permutations used to assess the significance of the test.
 }
+\item{seed}{
+a random seed to ensure reproducibility of the permutations.
+}
 \item{correction}{
 the correction method for negative eigenvalues (details below): correction="lingoes" and correction="cailliez". Default value: "none".
 }
@@ -99,7 +102,8 @@ tree_B <- cophylogenetic_system$tree_B
 # Present-day interaction network between species of guild A (columns) and guild B (rows)
 network <- cophylogenetic_system$network
 
-nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
+nperm <- 1000 # At least 10,000 permutations are recommended 
+# (1,000 are used here to keep the example computationally fast)
 
 # Run ParaFit under H0 (random shuffling of species labels)
 parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
@@ -118,21 +122,26 @@ data("cophylogenetic_system") # Load the data
 
 tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
 tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
-network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
-table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic distribution of each species from guild A
+network <- cophylogenetic_system$network 
+# Interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host 
+# A two-column table indicating the biogeographic distribution of each species from guild A
 
-nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example - the p-value resolution depends on the number of permutations)
+nperm <- 1000 # At least 10,000 permutations are recommended 
+# (1,000 are used here to keep the example computationally fast)
 
 # Run ParaFit under "H0" (random shuffling of the species labels)
 parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
 # Run ParaFit under "H0 biogeo" (biogeography-constrained shuffling of the species labels)
-parafit_result_biogeo <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
+parafit_result_biogeo <- parafit_test(tree_A, tree_B, network, nperm = nperm, 
+    nullmodel = "biogeo", table_biogeo = table_biogeo_host)
 
 # Compare the results obtained under the two null models 
 parafit_result[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0"
 parafit_result_biogeo[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0 biogeo"
-compare_null_models(parafit_result, parafit_result_biogeo, method = "parafit") # Standardized effect sizes and f fraction
+compare_null_models(parafit_result, parafit_result_biogeo, method = "parafit") 
+# Standardized effect sizes and f fraction
 
 # Plot the distributions under the two null models
 plot_null_models_comparison(parafit_result, parafit_result_biogeo, "parafit")

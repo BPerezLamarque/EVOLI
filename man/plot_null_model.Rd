@@ -58,11 +58,13 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 
 data("cophylogenetic_system") # Load the data
 
-tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of guild A
-tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of guild B
-network <- cophylogenetic_system$network # Present-day interaction network between species from guild A (columns) and guild B (rows)
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network 
+# Interaction network between species of clade A (on columns) and species of clade B (on rows)
 
-nperm <- 1000 # At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
+nperm <- 1000 # At least 10,000 permutations are recommended 
+# (1,000 are used here to keep the example computationally fast)
 
 # Run PACo under H0 (random shuffling of species labels)
 PACo_result <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")

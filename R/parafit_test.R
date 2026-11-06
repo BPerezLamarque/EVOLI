@@ -4,10 +4,10 @@ function (dist_A, dist_B, network, nperm = 1000,
                           nullmodel = "shuffle", table_biogeo = NULL) {
   epsilon <- sqrt(.Machine$double.eps)
   
-  if (class(dist_A)=="phylo"){
+  if (inherits(dist_A, "phylo")){
     dist_A <- stats::cophenetic(dist_A)
   }
-  if (class(dist_B)=="phylo"){
+  if (inherits(dist_B, "phylo")){
     dist_B <- stats::cophenetic(dist_B)
   }
   

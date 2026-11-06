@@ -21,9 +21,14 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 data("cophylogenetic_system") # Load the data
 
 tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+
 tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
-network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
-table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
+
+network <- cophylogenetic_system$network 
+# Interaction network between species of clade A (on columns) and species of clade B (on rows)
+
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host 
+# A two-column table indicating the biogeographic distribution of each species from guild A
 
 }
 \seealso{

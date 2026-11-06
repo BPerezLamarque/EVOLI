@@ -71,7 +71,8 @@ tree_fungi <- mycorrhizal_network[[3]] # Phylogenetic tree of guild B (fungi)
 # (do closely related species interact with similar partners within sub-clades of guild A?)
 
 results_clade_A <- phylosignal_sub_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
-                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+                                           method = "GUniFrac", correlation = "Pearson", 
+                                           degree = TRUE)
 plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network, where = "topleft")
 
 
@@ -79,7 +80,8 @@ plot_phylosignal_sub_network(tree_A = tree_orchids, results_clade_A, network, wh
 # (do closely related species interact with similar partners within sub-clades of guild B?)
 
 results_clade_B <- phylosignal_sub_network(t(network), tree_A = tree_fungi, tree_B = tree_orchids, 
-                                           method = "GUniFrac", correlation = "Pearson", degree = TRUE)
+                                           method = "GUniFrac", correlation = "Pearson", 
+                                           degree = TRUE)
 plot_phylosignal_sub_network(tree_A = tree_fungi, results_clade_B, t(network), where = "topleft")
 
 }
