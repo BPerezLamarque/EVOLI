@@ -2,13 +2,13 @@
 \alias{parafit_test}
 
 \title{
-Compute cophylogenetic signal in a bipartite interaction network using ParaFit.
+Compute the cophylogenetic signal in a bipartite interaction network using ParaFit.
 }
 
 \description{
-This function computes the cophylogenetic signal in species interactions using ParaFit.
+This function computes the cophylogenetic signal in a bipartite species interaction network using ParaFit.
 
-The method is described in detail in Legendre et al. (2002) and originally coded in the package APE (Paradis, 2004).
+The method is described in detail in Legendre et al. (2002) and originally implemented in the APE package (Paradis, 2004).
 }
 
 \usage{
@@ -21,29 +21,25 @@ nullmodel = "shuffle", table_biogeo = NULL)
 \arguments{
 
 \item{dist_A}{
-a distance matrix representing the phylogenetic distances between pairs of species from guild A (in columns in the interaction network), or directly the phylogenetic tree of guild A.
+a phylogenetic distance matrix representing pairwise distances between species from guild A (in columns of the interaction network), or directly the phylogenetic tree of guild A.
 }
 \item{dist_B}{
-a distance matrix representing the phylogenetic distances between pairs of species from guild B (in rows in the interaction network), or directly the phylogenetic tree of guild B.
+a phylogenetic distance matrix representing pairwise distances between species from guild B (in rows of the interaction network), or directly the phylogenetic tree of guild B.
 }
 \item{network}{
 a matrix representing the bipartite interaction network with species from guild A in columns and species from guild B in rows. Row names (resp. columns names) must correspond to the tip labels of tree B (resp. tree A).
 }
-
 \item{nperm}{
-a number of permutations to evaluate the significance of the test.
+the number of permutations used to assess the significance of the test.
 }
-
 \item{correction}{
-Correction methods for negative eigenvalues (details below): correction="lingoes" and correction="cailliez". Default value: "none".
+the correction method for negative eigenvalues (details below): correction="lingoes" and correction="cailliez". Default value: "none".
 }
-
 \item{nullmodel}{
-Indicates which type of null model to use, including "suffle" (by default - i.e. random shufflying of the species labels of "tree_A") or "biogeo" (i.e. only shuffling species of tree A that are present on the same biogeographic areas - to do so, provide an object "table_biogeo").
+indicates which null model to use: "shuffle" (default), which randomly shuffles the species labels of tree A, or "biogeo", which only shuffles the labels of species from guild A occurring in the same biogeographic area. For the latter, an object "table_biogeo" must be provided.
 }
-
 \item{table_biogeo}{
-(optional) a dataframe that contains two columns: a column "species" that contains the name of each species of guild A and a column "biogeo" that indicate the corresponding biogeographic area for each species (only one area per species). This table is used for the nullmodel "biogeo".
+(optional) a dataframe with two columns: a column "species", containing the names of species from guild A, and a column "biogeo", indicating the corresponding biogeographic area of each species. Each species must be assigned to a single biogeographic area. This table is required when nullmodel = "biogeo".
 }
 
 
@@ -51,16 +47,16 @@ Indicates which type of null model to use, including "suffle" (by default - i.e.
 
 
 \value{
-The function outputs a list with the following elements:
-- ParaFitGlobal: the statistic of the test,
-- p: the p-value of the test under the null model considered,
-- ParaFitGlobal_perm: a vector with the statistics of the test for each permuted dataset under the nullmodel considered.
-- nperm: the number of permutation,
-- nullmodel: the nullmodel considered
+The function returns a list with the following elements:
+- ParaFitGlobal: the test statistic,
+- p: the p-value obtained under the specified null model,
+- ParaFitGlobal_perm: a vector containing the test statistics obtained for each permuted dataset under the null model,
+- nperm: the number of permutations,
+- nullmodel: the null model used
 }
 \details{
 
-See the tutorial on GitHub for measuring cophylogenetic signal accouting for biogeography (https://github.com/BPerezLamarque/EVOLI).
+See the tutorials for measuring cophylogenetic signal on GitHub (https://github.com/BPerezLamarque/EVOLI).
 
 }
 \references{
@@ -68,26 +64,34 @@ Legendre P, Desdevises Y, and Bazin E. 2002. A statistical test for host-parasit
 
 Paradis E, Schliep K. 2019. ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R. Bioinformatics, 35, 526-528.
 
+Perez-Lamarque B, Morlon H. 2024. Distinguishing cophylogenetic signal from phylogenetic congruence clarifies the interplay between evolutionary history and species interactions, Systematic Biology, 73: 3.
+
 Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography on the evolutionary conservatism of species interactions, in prep.
 
 }
 \author{Benoît Perez-Lamarque}
 \seealso{
-\code{\link{parafit_test}}
+\code{\link{PACo_test}}
 }
 \examples{
 
-# Example 1: Compute cophylogenetic signal using ParaFit
+# Example 1: Compute the cophylogenetic signal using ParaFit
 
-data("cophylogenetic_system") # Load the data
+# Load the data
+data("cophylogenetic_system")
 
-tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
-tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
-network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
+# Phylogenetic tree of guild A
+tree_A <- cophylogenetic_system$tree_A
 
-nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
+# Phylogenetic tree of guild B
+tree_B <- cophylogenetic_system$tree_B
 
-# Run ParaFit under "H0" (random shuffling of the species labels)
+# Present-day interaction network between species of guild A (columns) and guild B (rows)
+network <- cophylogenetic_system$network
+
+# At least 10,000 permutations are recommended (1,000 are used here to keep the example computationally fast)
+
+# Run ParaFit under H0 (random shuffling of species labels)
 parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
 # Print the test statistic and p-value under "H0"
@@ -98,21 +102,22 @@ plot_null_model(parafit_result, "parafit")
 
 
 
-# Example 2: Assess the effect of biogeography on cophylogenetic signal using PACo
+# Example 2: Assess the effect of biogeography on the cophylogenetic signal using ParaFit
+
 
 data("cophylogenetic_system") # Load the data
 
 tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
 tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
 network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
-table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic distribution of each species from guild A
 
-nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example - the p-value resolution depends on the number of permutations)
 
 # Run ParaFit under "H0" (random shuffling of the species labels)
 parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
-# Run ParaFit under "H0 biogeo" (biogeography-based shuffling of the species labels)
+# Run ParaFit under "H0 biogeo" (biogeography-constrained shuffling of the species labels)
 parafit_result_biogeo <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
 
 # Compare the results obtained under the two null models 
