@@ -8,8 +8,8 @@ function(res, method,
   if (method=="paco"){
     x_obs <- res$R2_obs
     x_H0 <- res$R2_perm
-    name <- expression("PACo R"^2)
-    obs <- expression("Obs. R"^2)
+    name <- "PACo R2"
+    obs <- "Obs. R2"
   }
   if (method=="parafit"){
     x_obs <- res$ParaFitGlobal
