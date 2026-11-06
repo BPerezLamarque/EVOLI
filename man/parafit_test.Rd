@@ -48,11 +48,15 @@ indicates which null model to use: "shuffle" (default), which randomly shuffles 
 
 \value{
 The function returns a list with the following elements:
-- ParaFitGlobal: the test statistic,
-- p: the p-value obtained under the specified null model,
-- ParaFitGlobal_perm: a vector containing the test statistics obtained for each permuted dataset under the null model,
-- nperm: the number of permutations,
-- nullmodel: the null model used
+
+\itemize{
+\item ParaFitGlobal: the test statistic,
+\item p: the p-value obtained under the specified null model,
+\item ParaFitGlobal_perm: a vector containing the test statistics obtained for each permuted dataset under the null model,
+\item nperm: the number of permutations,
+\item nullmodel: the null model used
+}
+
 }
 \details{
 

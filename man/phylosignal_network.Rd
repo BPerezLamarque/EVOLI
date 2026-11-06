@@ -45,7 +45,7 @@ Alternatively, to evaluate phylogenetic signal in the number of partners (do clo
 (optional) indicates whether phylogenetic signal should only be computed for guild A (and not for guild B). By default, signal is computed for both guilds when "tree_B" is provided.
 }
 \item{permutation}{
-(optional) indicates which permutations are performed to assess the significance of the Mantel correlation: "shuffle" (default), which randomly shuffles the species labels of tree A; "nbpartners", which keeps the number of partners per species of guild A constant while randomly shuffling their identities; or "biogeo", which only shuffles the labels of species from guild A occurring in the same biogeographic area. For the latter, an object "table_biogeo" must be provided.
+(optional) indicates which permutations are performed to assess the significance of the Mantel correlation: "shuffle" (default), which randomly shuffles the species labels; "nbpartners", which keeps the number of partners per species of guild A constant while randomly shuffling their identities; or "biogeo", which only shuffles the labels of species from guild A occurring in the same biogeographic area. For the latter, an object "table_biogeo" must be provided.
 }
 \item{table_biogeo}{
 (optional) a dataframe with two columns: a column "species", containing the names of species from guild A, and a column "biogeo", indicating the corresponding biogeographic area of each species. Each species must be assigned to a single biogeographic area. This table is required when nullmodel = "biogeo".
@@ -55,7 +55,16 @@ Alternatively, to evaluate phylogenetic signal in the number of partners (do clo
 
 \value{
 
-For Mantel tests, the function returns a vector containing up to eight values: the number of species in guild A ("nb_A"), the number of species in guild B ("nb_B"), the correlation coefficient for guild A ("mantel_cor_A"), its associated upper-tail p-value ("p_upper_A", i.e. the fraction of permutations resulting in higher correlation values), its associated lower-tail p-value ("p_lower_A", i.e. the fraction of permutations resulting in lower correlation values), and, optionally, the corresponding correlation coefficient ("mantel_cor_B") and upper- and lower-tail p-values ("p_upper_B" and "p_lower_B") for guild B.
+For Mantel tests, the function returns a vector containing up to eight values: 
+
+\itemize{
+\item the number of species in guild A ("nb_A"), 
+\item the number of species in guild B ("nb_B"), 
+\item the correlation coefficient for guild A ("mantel_cor_A"), 
+\item its associated upper-tail p-value ("p_upper_A", i.e. the fraction of permutations resulting in higher correlation values), 
+\item its associated lower-tail p-value ("p_lower_A", i.e. the fraction of permutations resulting in lower correlation values), 
+\item and, optionally, the corresponding correlation coefficient ("mantel_cor_B") and upper- and lower-tail p-values ("p_upper_B" and "p_lower_B") for guild B.
+}
 
 "mantel_cor_A" (or "mantel_cor_B") indicates the strength of the phylogenetic signal in guild A (or B). The upper-tail p-value ("p_upper_A" or "p_upper_B") indicates the significance of positive phylogenetic signal in guild A (or B), whereas the lower-tail p-value ("p_lower_A" or "p_lower_B") indicates the significance of negative phylogenetic signal (i.e. anti-phylogenetic signal) in guild A (or B).
 

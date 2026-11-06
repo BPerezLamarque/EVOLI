@@ -48,11 +48,15 @@ indicates which null model to use: "shuffle" (default), which randomly shuffles 
 
 \value{
 The function returns a list with the following elements:
-- R2_obs: the test statistic,
-- p: the p-value obtained under the specified null model,
-- R2_perm: a vector containing the test statistics obtained for each permuted dataset under the null model,
-- nperm: the number of permutation,
-- nullmodel: the null model used
+
+\itemize{
+\item R2_obs: the test statistic,
+\item p: the p-value obtained under the specified null model,
+\item R2_perm: a vector containing the test statistics obtained for each permuted dataset under the null model,
+\item nperm: the number of permutation,
+\item nullmodel: the null model used
+}
+
 }
 \details{
 
