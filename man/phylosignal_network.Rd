@@ -98,25 +98,32 @@ tree_fungi <- mycorrhizal_network[[3]] # Phylogenetic tree of guild B (fungi)
 # Step 1: Phylogenetic signal in species interactions
 # (do closely related species interact with similar partners?)
 
-phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
+mantel_result <- phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
 method = "GUniFrac", correlation = "Pearson", nperm = 10000) # measured for both guilds
-
+mantel_result[c("mantel_cor_A", "p_upper_A","mantel_cor_B", "p_upper_B")] 
 
 # Step 2: Assess phylogenetic signal in species interactions while accounting
 # for the number of partners per species
 # Mantel test with permutations that preserve the number of partners per species
 
-phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
+mantel_result <- phylosignal_network(network, tree_A = tree_orchids, tree_B = tree_fungi,
 method = "GUniFrac", correlation = "Pearson", nperm = 1000, permutation = "nbpartners")
+mantel_result[c("mantel_cor_A", "p_upper_A","mantel_cor_B", "p_upper_B")] 
 
 
 # Other: Phylogenetic signal in the number of partners
 # (do closely related species interact with the same number of partners?)
 
-phylosignal_network(network, tree_A = tree_orchids, method = "degree",
-correlation = "Pearson", nperm = 10000) # for guild A
-phylosignal_network(t(network), tree_A = tree_fungi, method = "degree",
-correlation = "Pearson", nperm = 10000) # for guild B
+# for guild A:
+mantel_result <- phylosignal_network(network, tree_A = tree_orchids, method = "degree",
+correlation = "Pearson", nperm = 10000) 
+mantel_result[c("mantel_cor_A", "p_upper_A")] 
+
+# for guild B:
+mantel_result <-phylosignal_network(t(network), tree_A = tree_fungi, method = "degree",
+correlation = "Pearson", nperm = 10000)
+mantel_result[c("mantel_cor_A", "p_upper_A")] 
+
 
 }
 
