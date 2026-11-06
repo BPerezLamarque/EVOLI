@@ -76,7 +76,7 @@ function (dist_A, dist_B, network, nperm = 1000,
   R2_obs <- 1 - m2ss
   R2_perm <- 1 - ss_perm
   
-  pvalue <- mean(R2_perm >= R2_obs)
+  pvalue <- min(c(length(which(c(R2_perm,R2_obs)>=R2_obs))/nperm,1)) # mean(R2_perm >= R2_obs)
   
   out <- c()
   out$proc <- proc

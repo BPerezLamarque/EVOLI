@@ -50,7 +50,7 @@ function(results, results_biogeo, method, median=FALSE){
   res <- rbind(c("Random permutations (H0)", round(mu_null,4),  round(sd_null,4),  round(SES_null,4), ""),
                c("Biogeographic-based permutations (H0 biogeo)",  round(mu_null_biogeo,4),  round(sd_null_biogeo,4),  round(SES_null_biogeo,4),  round(fraction_explained,4)))
   
-  colnames(res) <- c("Random permutations", "mean", "sd", "SES", "f fraction")
+  colnames(res) <- c("Null model", "mean", "sd", "SES", "f fraction")
   
   return(res)
   
