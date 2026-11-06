@@ -139,7 +139,8 @@ mantel_result[c("mantel_cor_A", "p_upper_A")]
 
 
 
-# Example 2: Assess the effect of biogeography on phylogenetic signal in species interactions using Mantel tests
+# Example 2: Assess the effect of biogeography on phylogenetic signal in species interactions 
+# using Mantel tests
 
 data("cophylogenetic_system") # Load the data
 

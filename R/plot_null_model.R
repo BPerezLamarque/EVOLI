@@ -8,8 +8,8 @@ function(res, method,
   if (method=="paco"){
     x_obs <- res$R2_obs
     x_H0 <- res$R2_perm
-    name <- ylab(expression("PACo R"^2))
-    obs <- ylab(expression("Obs. R"^2))
+    name <- expression("PACo R"^2)
+    obs <- expression("Obs. R"^2)
   }
   if (method=="parafit"){
     x_obs <- res$ParaFitGlobal
@@ -40,7 +40,7 @@ function(res, method,
     scale_fill_manual(values = c("H0" = "#154360"),name = NULL) +
     scale_color_manual(values = setNames("red", obs),name = NULL) +
     scale_linetype_manual(values = setNames("solid", obs),name = NULL) +
-    coord_cartesian(xlim = xlim) + labs(x = name, y = "Density") + theme_bw()
+    coord_cartesian(xlim = xlim) + labs(x = name) + theme_bw()
   print(p)
   
 }

@@ -54,7 +54,8 @@ Ibos Y, Sagnard A, Perez-Lamarque B. 2026. Assessing the effect of biogeography 
 \examples{
 
 \donttest{
-# Example: Compute cophylogenetic signal using PACo and plot the null distribution of the test statistic
+# Example: Compute cophylogenetic signal using PACo 
+# and plot the null distribution of the test statistic
 
 data("cophylogenetic_system") # Load the data
 
